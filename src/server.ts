@@ -1,5 +1,12 @@
-import { application } from './application'
+import { app } from './app';
 
-application.listen(application.get('port'), () => {
-  console.log('App is running at http://localhost:%d in %s mode', application.get('port'), application.get('env'))
+const port = app.get('port');
+const enviroment = app.get('env');
+
+app.listen(port, () => {
+  console.log(
+    'Cyber Bank server is running at http://localhost:%d in %s mode', 
+    port, 
+    enviroment
+  );
 })

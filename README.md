@@ -4,6 +4,10 @@
 
 Desenvolver uma solução em formato de API com a utilização de node.js e Typescript.
 
+### Recursos utilizados
+- [Knex](http://knexjs.org/) - Criador de consultas SQL.
+  - SQLite3
+
 ### Como realizar
 
 Faça o fork do repositório, realize os seus commits e ao final envie o link do seu repositório para o e-mail rh@moovin.com.br. Este repositório já possui uma base para iniciar o desenvolvimento, utilize-a como achar necessário. 
@@ -12,10 +16,21 @@ Para iniciar você deve instalar as dependências:
 ```zsh
   foo@bar:~$ npm i
 ```
+
+Após a instalação das dependências, você deve rodar a migration e o seed do banco de dados.
+```zsh
+  foo@bar:~$ npm run knex:migrate
+  foo@bar:~$ npm run knex:seed
+```
+
 Em seguida você poderá executar exemplos de utilização do sistema criado através do comando:
 ```zsh
   foo@bar:~$ npm run dev
 ```
+
+### Rotas do sistema
+Você pode importar o arquivo `insomnia.routes` que se encontra na raiz do projeto no [Insomnia](https://insomnia.rest/download)
+para testar as rotas do sistema.
 
 ### Instruções
 
