@@ -1,6 +1,7 @@
 import knex from '../database/connection';
 import { Request, Response } from 'express';
 import { AccountNotFoundError } from '../errors/AccountNotFoundError';
+import { AccountProps } from '../model/Account';
 
 class DepositController {
 
@@ -19,7 +20,7 @@ class DepositController {
          * Busca a conta pelo seu número
          */
         const [accountFound] = await knex('account')
-        .where('account_number', account_number);
+        .where('account_number', account_number) as [AccountProps]
 
         if (!account_number || !accountFound) {
             throw new AccountNotFoundError('Conta não encontrada');

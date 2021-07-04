@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import { AccountNotFoundError } from '../errors/AccountNotFoundError';
 import { BalanceError } from '../errors/BalanceError';
 import { LimitError } from '../errors/LimitError';
+import { AccountProps } from '../model/Account';
 
 class WithdrawController {
 
@@ -21,7 +22,7 @@ class WithdrawController {
          * Busca a conta pelo seu número
          */
         const [accountFound] = await knex('account')
-        .where('account_number', account_number);
+        .where('account_number', account_number) as [AccountProps];
 
         if (!account_number || !accountFound) {
             throw new AccountNotFoundError('Conta não encontrada');
