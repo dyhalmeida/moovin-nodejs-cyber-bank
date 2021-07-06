@@ -4,6 +4,8 @@ import { AccountNotFoundError } from '../errors/AccountNotFoundError';
 import { BalanceError } from '../errors/BalanceError';
 import { LimitError } from '../errors/LimitError';
 import { AccountProps } from '../model/Account';
+import { RequestParams } from '../model/RequestParams';
+import { BodyParams } from '../model/BodyParams';
 
 class WithdrawController {
 
@@ -11,7 +13,7 @@ class WithdrawController {
      * Realiza um saque da conta conforme número da conta e valor do saque.
      * @return conta com saldo atualizado.
      */
-    async withdraw(request: Request, response: Response) {
+    async withdraw(request: Request<RequestParams, {}, BodyParams>, response: Response) {
 
        try {
 

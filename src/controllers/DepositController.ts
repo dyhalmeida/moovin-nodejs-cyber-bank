@@ -2,6 +2,8 @@ import knex from '../database/connection';
 import { Request, Response } from 'express';
 import { AccountNotFoundError } from '../errors/AccountNotFoundError';
 import { AccountProps } from '../model/Account';
+import { RequestParams } from '../model/RequestParams';
+import { BodyParams } from '../model/BodyParams';
 
 class DepositController {
 
@@ -9,7 +11,7 @@ class DepositController {
      * Realiza um deposito na conta conforme número da conta e valor do depósito.
      * @return conta com saldo atualizado.
      */
-    async deposit(request: Request, response: Response) {
+    async deposit(request: Request<RequestParams, {}, BodyParams>, response: Response) {
 
        try {
 
